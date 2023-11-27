@@ -4,6 +4,7 @@ import util.Stack;
 
 public class State {
     private double currentValue;
+    //TODO gestion erreur
     private Stack<Double> stack;
 
     public State() {

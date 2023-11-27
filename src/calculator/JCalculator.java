@@ -102,10 +102,10 @@ public class JCalculator extends JFrame
     addOperatorButton(".", 2, 5, Color.BLUE, null);
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
-    addOperatorButton("/", 3, 2, Color.RED, null);
-    addOperatorButton("*", 3, 3, Color.RED, null);
-    addOperatorButton("-", 3, 4, Color.RED, null);
-    addOperatorButton("+", 3, 5, Color.RED, null);
+    addOperatorButton("/", 3, 2, Color.RED, new DivisionOperator());
+    addOperatorButton("*", 3, 3, Color.RED, new MultiplicationOperator("mul"));
+    addOperatorButton("-", 3, 4, Color.RED, new MultiplicationOperator("sub"));
+    addOperatorButton("+", 3, 5, Color.RED, new MultiplicationOperator("add"));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
     addOperatorButton("1/x", 4, 2, Color.RED, null);
