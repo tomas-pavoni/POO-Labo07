@@ -4,7 +4,8 @@ import util.Stack;
 
 public class State {
     private double currentValue;
-    //TODO gestion erreur
+    private String error = "";
+    private double currentMemory;
     private Stack<Double> stack;
 
     public State() {
@@ -16,12 +17,28 @@ public class State {
         return currentValue;
     }
 
+    public String getError(){
+        return error;
+    }
+
+    public double getCurrentMemory(){
+        return currentMemory;
+    }
+
     public Stack<Double> getStack() {
         return stack;
     }
 
     public void setCurrentValue(double value) {
         this.currentValue = value;
+    }
+
+    public void setError(String error){
+        this.error = error;
+    }
+
+    public void setCurrentMemory(double value){
+        this.currentMemory = value;
     }
 
     public void add() {
