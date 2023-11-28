@@ -2,8 +2,9 @@ package calculator;
 
 public class MultiplicationOperator extends Operator {
     String op;
-    MultiplicationOperator(String op){
+    MultiplicationOperator(String op, State state){
         this.op = op;
+        this.state = state;
     }
     public double mul(double operand1, double operand2) {
         return operand1 * operand2;

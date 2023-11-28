@@ -3,6 +3,10 @@ package calculator;
 import java.math.BigDecimal;
 
 public class Backspace extends Operator{
+
+    Backspace(State state){
+        this.state = state;
+    }
     @Override
     void execute() {
         String numberStr = Double.toString(state.getCurrentValue());

@@ -5,6 +5,10 @@ public class DivisionOperator extends Operator {
         return operand1 / operand2;
     } //Useless?
 
+    DivisionOperator(State state){
+        this.state = state;
+    }
+
     @Override
     void execute() {
         //TODO OR SIMPLY CALL DIVIDE IN STATE??
