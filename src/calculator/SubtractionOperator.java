@@ -12,7 +12,7 @@ public class SubtractionOperator extends Operator {
         if (!state.getStack().isEmpty()) {
             state.setCurrentValue(Double.toString(state.getStack().pop() -
                     Double.parseDouble(state.getCurrentValue())));
+            state.nextNumberPushesToStack = true;
         }
-        state.nextNumberPushesToStack = true;
     }
 }

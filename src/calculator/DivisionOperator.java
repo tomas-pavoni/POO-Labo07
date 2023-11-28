@@ -12,14 +12,16 @@ public class DivisionOperator extends Operator {
     @Override
     void execute() {
         if (!state.getStack().isEmpty()) {
-            double divisor = state.getStack().pop();
+            double dividend = state.getStack().pop();
+            double divisor = Double.parseDouble(state.getCurrentValue());
             if (divisor != 0) {
-                state.setCurrentValue(Double.toString(Double.parseDouble(state.getCurrentValue()) / divisor));
+                state.setCurrentValue(Double.toString(dividend / divisor));
             } else {
                 // Handle division by zero
                 // For now, we'll set the result to 0; you may want to handle this differently
                 state.setCurrentValue("0");
             }
+            state.nextNumberPushesToStack = true;
         }
     }
 }
