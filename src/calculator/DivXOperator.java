@@ -1,6 +1,9 @@
 package calculator;
 
 public class DivXOperator extends Operator{
+    DivXOperator(State state){
+        this.state = state;
+    }
     @Override
     void execute() {
         if (state.getStack().pop() == 0) {

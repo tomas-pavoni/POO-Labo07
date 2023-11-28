@@ -34,6 +34,8 @@ public class JCalculator extends JFrame
   // Mise a jour de l'interface apres une operation (jList et jStack)
   private void update()
   {
+    jStack.setListData(state.getStack().toArray());
+    jNumber.setText(String.valueOf(state.getCurrentValue()));
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
   }
@@ -92,15 +94,15 @@ public class JCalculator extends JFrame
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
-			Color.BLUE, null);
+			Color.BLUE, new AddNumberOperator(i, state));
     // Bouton 0
-    addOperatorButton("0", 0, 5, Color.BLUE, null);
+    addOperatorButton("0", 0, 5, Color.BLUE, new AddNumberOperator(0, state));
 
     // Changement de signe de la valeur courante
-    addOperatorButton("+/-", 1, 5, Color.BLUE, null);
+    addOperatorButton("+/-", 1, 5, Color.BLUE, new PlusMinusOperator(state));
 
     // Operateur point (chiffres apres la virgule ensuite)
-    addOperatorButton(".", 2, 5, Color.BLUE, null);
+    addOperatorButton(".", 2, 5, Color.BLUE, new DotOperator(state));
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
     addOperatorButton("/", 3, 2, Color.RED, new DivisionOperator(state));
@@ -109,12 +111,12 @@ public class JCalculator extends JFrame
     addOperatorButton("+", 3, 5, Color.RED, new MultiplicationOperator("add", state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
-    addOperatorButton("1/x", 4, 2, Color.RED, null);
-    addOperatorButton("x^2", 4, 3, Color.RED, null);
-    addOperatorButton("Sqrt", 4, 4, Color.RED, null);
+    addOperatorButton("1/x", 4, 2, Color.RED, new DivXOperator(state));
+    addOperatorButton("x^2", 4, 3, Color.RED, new Power2Operator(state));
+    addOperatorButton("Sqrt", 4, 4, Color.RED, new SqrtOperator(state));
 
     // Entree: met la valeur courante sur le sommet de la pile
-    addOperatorButton("Ent", 4, 5, Color.RED, null);
+    addOperatorButton("Ent", 4, 5, Color.RED, new EnterOperator(state));
 
     // Affichage de la pile
     JLabel jLabel = new JLabel("Stack");

@@ -1,14 +1,16 @@
 package calculator;
 
 public class AddNumberOperator extends Operator {
-    private final double number;
+    private final int number;
 
-    AddNumberOperator(double number, State state) {
+    AddNumberOperator(int number, State state) {
         this.number = number;
+        this.state = state;
     }
 
     @Override
     void execute() {
-        state.getStack().push(number);
+        //state.setCurrentValue(Double.parseDouble(state.getCurrentValue() + number));
+        state.setCurrentValue(state.getCurrentValue()*10 + number);
     }
 }

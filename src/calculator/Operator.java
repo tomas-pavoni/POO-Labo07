@@ -2,7 +2,7 @@ package calculator;
 
 abstract class Operator
 {
-  static State state;
+  State state;
 
   abstract void execute();
 }
