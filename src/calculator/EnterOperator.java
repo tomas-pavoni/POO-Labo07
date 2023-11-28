@@ -6,7 +6,10 @@ public class EnterOperator extends Operator {
     }
     @Override
     void execute() {
-        state.getStack().push(Double.parseDouble(state.getCurrentValue()));
-        state.setCurrentValue("");
+        if(!state.getCurrentValue().isEmpty() && state.getError().isEmpty()){
+            state.getStack().push(Double.parseDouble(state.getCurrentValue()));
+            state.setCurrentValue("");
+            state.nextNumberPushesToStack = false;
+        }
     }
 }

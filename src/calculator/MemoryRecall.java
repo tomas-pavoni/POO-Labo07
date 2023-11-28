@@ -6,7 +6,7 @@ public class MemoryRecall extends Operator{
     }
     @Override
     void execute() {
-        if(state.isMemorySet){
+        if(state.isMemorySet && state.getError().isEmpty()){
             state.setCurrentValue(Double.toString(state.getCurrentMemory()));
         }
     }

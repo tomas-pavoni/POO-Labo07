@@ -6,7 +6,7 @@ public class DotOperator extends Operator {
     }
     @Override
     void execute() {
-        if (!state.getCurrentValue().contains(".")) {
+        if (!state.getCurrentValue().contains(".") && state.getError().isEmpty()) {
             state.setCurrentValue(state.getCurrentValue() + ".");
         }
     }

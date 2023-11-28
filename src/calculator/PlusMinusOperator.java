@@ -6,7 +6,7 @@ public class PlusMinusOperator extends Operator {
     }
     @Override
     void execute() {
-        if(!state.getCurrentValue().isEmpty()){
+        if(!state.getCurrentValue().isEmpty() && state.getError().isEmpty()){
             state.setCurrentValue(Double.toString(Double.parseDouble(state.getCurrentValue()) * (-1)));
         }
     }

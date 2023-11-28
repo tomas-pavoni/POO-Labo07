@@ -40,7 +40,15 @@ public class JCalculator extends JFrame
     else{
       jStack.setListData(state.getStack().toArray());
     }
-    jNumber.setText(String.valueOf(state.getCurrentValue()));
+    //if(Double.parseDouble(state.getCurrentValue()) > 9999999){
+    //  state.setError("Nombre courant trop élevé");
+    //}
+    if(state.getError().isEmpty()){
+      jNumber.setText(String.valueOf(state.getCurrentValue()));
+    }
+    else{
+      jNumber.setText(state.getError());
+    }
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
   }
@@ -56,7 +64,7 @@ public class JCalculator extends JFrame
     constraints.gridy = y;
     getContentPane().add(b, constraints);
     b.addActionListener(e -> {
-	operator.execute();
+    operator.execute();
 	update();
       });
   }

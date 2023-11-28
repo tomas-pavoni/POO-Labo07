@@ -10,14 +10,15 @@ public class AddNumberOperator extends Operator {
 
     @Override
     void execute() {
-        //state.setCurrentValue(Double.parseDouble(state.getCurrentValue() + number));
-        if(!state.nextNumberPushesToStack){
-            state.setCurrentValue(state.getCurrentValue() + number);
-        }
-        else {
-            state.getStack().push(Double.parseDouble(state.getCurrentValue()));
-            state.setCurrentValue(number);
-            state.nextNumberPushesToStack = false;
+        if(state.getError().isEmpty()){
+            if(!state.nextNumberPushesToStack){
+                state.setCurrentValue(state.getCurrentValue() + number);
+            }
+            else {
+                state.getStack().push(Double.parseDouble(state.getCurrentValue()));
+                state.setCurrentValue(number);
+                state.nextNumberPushesToStack = false;
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ public class Backspace extends Operator{
     void execute() {
         String numberStr = state.getCurrentValue();
 
-        if(!numberStr.isEmpty()){
+        if(!numberStr.isEmpty() && state.getError().isEmpty()){
             // Remove the last character (including the decimal point, if present)
             numberStr = numberStr.substring(0, numberStr.length() - 1);
             state.setCurrentValue(numberStr);

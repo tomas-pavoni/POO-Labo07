@@ -6,11 +6,13 @@ public class DivXOperator extends Operator{
     }
     @Override
     void execute() {
-        if (Double.parseDouble(state.getCurrentValue()) == 0) {
-            state.setError("Div 0");
-        } else {
-            state.setCurrentValue(String.valueOf(1 / Double.parseDouble(state.getCurrentValue())));
+        if(!state.getCurrentValue().isEmpty() && state.getError().isEmpty()){
+            if (Double.parseDouble(state.getCurrentValue()) == 0) {
+                state.setError("Division par 0");
+            } else {
+                state.setCurrentValue(String.valueOf(1 / Double.parseDouble(state.getCurrentValue())));
+            }
+            state.nextNumberPushesToStack = true;
         }
-        state.nextNumberPushesToStack = true;
     }
 }

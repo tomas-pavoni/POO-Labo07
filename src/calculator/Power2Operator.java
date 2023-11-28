@@ -9,7 +9,9 @@ public class Power2Operator extends Operator {
     }
     @Override
     void execute() {
-        state.setCurrentValue(String.valueOf(pow(Double.parseDouble(state.getCurrentValue()), 2)));
-        state.nextNumberPushesToStack = true;
+        if(!state.getCurrentValue().isEmpty() && state.getError().isEmpty()){
+            state.setCurrentValue(String.valueOf(pow(Double.parseDouble(state.getCurrentValue()), 2)));
+            state.nextNumberPushesToStack = true;
+        }
     }
 }
