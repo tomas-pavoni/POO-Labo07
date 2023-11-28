@@ -15,11 +15,11 @@ public class DivisionOperator extends Operator {
         if (!state.getStack().isEmpty()) {
             double divisor = state.getStack().pop();
             if (divisor != 0) {
-                state.setCurrentValue(state.getCurrentValue() / divisor);
+                state.setCurrentValue(Double.toString(Double.parseDouble(state.getCurrentValue()) / divisor));
             } else {
                 // Handle division by zero
                 // For now, we'll set the result to 0; you may want to handle this differently
-                state.setCurrentValue(0);
+                state.setCurrentValue("0");
             }
         }
     }

@@ -6,6 +6,6 @@ public class PlusMinusOperator extends Operator {
     }
     @Override
     void execute() {
-        state.getStack().push((-1) * (state.getStack().pop()));
+        state.setCurrentValue(Double.toString(Double.parseDouble(state.getCurrentValue()) * (-1)));
     }
 }

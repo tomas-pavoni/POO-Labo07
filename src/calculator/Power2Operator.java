@@ -8,6 +8,6 @@ public class Power2Operator extends Operator {
     }
     @Override
     void execute() {
-        state.getStack().push(pow(state.getStack().pop(), 2));
+        state.setCurrentValue(String.valueOf(pow(Double.parseDouble(state.getCurrentValue()), 2)));
     }
 }

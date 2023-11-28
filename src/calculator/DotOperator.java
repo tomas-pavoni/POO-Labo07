@@ -6,6 +6,8 @@ public class DotOperator extends Operator {
     }
     @Override
     void execute() {
-        state.getStack().push(state.getStack().pop());
+        if (!state.getCurrentValue().contains(".")) {
+            state.setCurrentValue(state.getCurrentValue() + ".");
+        }
     }
 }

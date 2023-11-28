@@ -21,17 +21,18 @@ public class MultiplicationOperator extends Operator {
         if (!state.getStack().isEmpty()) {
             switch(op){
                 case "add" :
-                    state.setCurrentValue(add(state.getCurrentValue(), state.getStack().pop()));
+                    state.setCurrentValue(Double.toString(add(Double.parseDouble(state.getCurrentValue()), state.getStack().pop())));
                     break;
                 case "sub" :
-                    state.setCurrentValue(sub(state.getCurrentValue(), state.getStack().pop()));
+                    state.setCurrentValue(Double.toString(sub(Double.parseDouble(state.getCurrentValue()), state.getStack().pop())));
                     break;
                 case "mul" :
-                    state.setCurrentValue(mul(state.getCurrentValue(), state.getStack().pop()));
+                    state.setCurrentValue(Double.toString(mul(Double.parseDouble(state.getCurrentValue()), state.getStack().pop())));
                     break;
                 default :
                     break; //TODO QQCH?
             }
         }
+        state.nextNumberPushesToStack = true;
     }
 }

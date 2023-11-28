@@ -94,9 +94,9 @@ public class JCalculator extends JFrame
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 
       addOperatorButton(String.valueOf(i), (i - 1) % 3, 4 - (i - 1) / 3, 
-			Color.BLUE, new AddNumberOperator(i, state));
+			Color.BLUE, new AddNumberOperator(String.valueOf(i), state));
     // Bouton 0
-    addOperatorButton("0", 0, 5, Color.BLUE, new AddNumberOperator(0, state));
+    addOperatorButton("0", 0, 5, Color.BLUE, new AddNumberOperator("0", state));
 
     // Changement de signe de la valeur courante
     addOperatorButton("+/-", 1, 5, Color.BLUE, new PlusMinusOperator(state));

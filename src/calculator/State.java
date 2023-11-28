@@ -3,17 +3,19 @@ package calculator;
 import util.Stack;
 
 public class State {
-    private double currentValue;
+    private String currentValue;
     private String error = "";
     private double currentMemory;
+    public boolean isMemorySet;
+    public boolean nextNumberPushesToStack;
     private Stack<Double> stack;
 
     public State() {
-        this.currentValue = 0.0;
+        this.currentValue = "";
         this.stack = new Stack<>();
     }
 
-    public double getCurrentValue() {
+    public String getCurrentValue() {
         return currentValue;
     }
 
@@ -29,7 +31,7 @@ public class State {
         return stack;
     }
 
-    public void setCurrentValue(double value) {
+    public void setCurrentValue(String value) {
         this.currentValue = value;
     }
 
@@ -41,7 +43,7 @@ public class State {
         this.currentMemory = value;
     }
 
-    public void add() {
+/*    public void add() {
         if (!stack.isEmpty()) {
             currentValue += stack.pop();
         }
@@ -70,7 +72,7 @@ public class State {
                 currentValue = 0;
             }
         }
-    }
+    }*/
     // Add more operations as needed
 }
 
