@@ -10,8 +10,11 @@ public class Backspace extends Operator{
     @Override
     void execute() {
         String numberStr = state.getCurrentValue();
-        // Remove the last character (including the decimal point, if present)
-        numberStr = numberStr.substring(0, numberStr.length() - 1);
-        state.setCurrentValue(numberStr);
+
+        if(!numberStr.isEmpty()){
+            // Remove the last character (including the decimal point, if present)
+            numberStr = numberStr.substring(0, numberStr.length() - 1);
+            state.setCurrentValue(numberStr);
+        }
     }
 }

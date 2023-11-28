@@ -34,7 +34,12 @@ public class JCalculator extends JFrame
   // Mise a jour de l'interface apres une operation (jList et jStack)
   private void update()
   {
-    jStack.setListData(state.getStack().toArray());
+    if(state.getStack().isEmpty()){
+      jStack.setListData(empty);
+    }
+    else{
+      jStack.setListData(state.getStack().toArray());
+    }
     jNumber.setText(String.valueOf(state.getCurrentValue()));
     // Modifier une zone de texte, JTextField.setText(string nom)
     // Modifier un composant liste, JList.setListData(Object[] tableau)
@@ -106,9 +111,9 @@ public class JCalculator extends JFrame
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
     addOperatorButton("/", 3, 2, Color.RED, new DivisionOperator(state));
-    addOperatorButton("*", 3, 3, Color.RED, new MultiplicationOperator("mul", state));
-    addOperatorButton("-", 3, 4, Color.RED, new MultiplicationOperator("sub", state));
-    addOperatorButton("+", 3, 5, Color.RED, new MultiplicationOperator("add", state));
+    addOperatorButton("*", 3, 3, Color.RED, new MultiplicationOperator(state));
+    addOperatorButton("-", 3, 4, Color.RED, new SubtractionOperator(state));
+    addOperatorButton("+", 3, 5, Color.RED, new AdditionOperator(state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
     addOperatorButton("1/x", 4, 2, Color.RED, new DivXOperator(state));

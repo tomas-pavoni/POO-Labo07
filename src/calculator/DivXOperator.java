@@ -11,5 +11,6 @@ public class DivXOperator extends Operator{
         } else {
             state.setCurrentValue(String.valueOf(1 / Double.parseDouble(state.getCurrentValue())));
         }
+        state.nextNumberPushesToStack = true;
     }
 }

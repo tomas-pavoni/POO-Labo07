@@ -6,7 +6,12 @@ public class MemoryStore extends Operator {
     }
     @Override
     void execute() {
-        state.setCurrentMemory(Double.parseDouble(state.getCurrentValue()));
+        if(state.getCurrentValue().isEmpty()){
+            state.setCurrentMemory(0);
+        }
+        else{
+            state.setCurrentMemory(Double.parseDouble(state.getCurrentValue()));
+        }
         state.isMemorySet = true;
     }
 }

@@ -8,5 +8,6 @@ public class ClearError extends Operator{
     void execute() {
         state.setError("");
         state.setCurrentValue("");
+        state.nextNumberPushesToStack = false;
     }
 }

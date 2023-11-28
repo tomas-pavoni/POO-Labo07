@@ -9,5 +9,6 @@ public class Clear extends Operator{
         state.setError("");
         state.setCurrentValue("");
         state.getStack().clear();
+        state.nextNumberPushesToStack = false;
     }
 }

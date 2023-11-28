@@ -1,6 +1,7 @@
 package calculator;
 
 import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 public class Power2Operator extends Operator {
     Power2Operator(State state){
@@ -9,5 +10,6 @@ public class Power2Operator extends Operator {
     @Override
     void execute() {
         state.setCurrentValue(String.valueOf(pow(Double.parseDouble(state.getCurrentValue()), 2)));
+        state.nextNumberPushesToStack = true;
     }
 }

@@ -1,5 +1,6 @@
 package calculator;
 
+import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public class SqrtOperator extends Operator {
@@ -8,6 +9,7 @@ public class SqrtOperator extends Operator {
     }
     @Override
     void execute() {
-        state.getStack().push(sqrt(state.getStack().pop()));
+        state.setCurrentValue(String.valueOf(sqrt(Double.parseDouble(state.getCurrentValue()))));
+        state.nextNumberPushesToStack = true;
     }
 }

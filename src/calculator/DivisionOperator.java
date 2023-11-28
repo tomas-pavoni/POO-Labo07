@@ -11,7 +11,6 @@ public class DivisionOperator extends Operator {
 
     @Override
     void execute() {
-        //TODO OR SIMPLY CALL DIVIDE IN STATE??
         if (!state.getStack().isEmpty()) {
             double divisor = state.getStack().pop();
             if (divisor != 0) {
