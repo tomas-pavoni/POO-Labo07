@@ -29,6 +29,7 @@ public class JCalculator extends JFrame
   // Contraintes pour le placement des composants graphiques
   private final GridBagConstraints constraints = new GridBagConstraints();
 
+  private final State state = new State();
 
   // Mise a jour de l'interface apres une operation (jList et jStack)
   private void update()
@@ -74,19 +75,19 @@ public class JCalculator extends JFrame
     constraints.gridwidth = 1; // reset width
 
     // Rappel de la valeur en memoire
-    addOperatorButton("MR", 0, 1, Color.RED, new MemoryRecall());
+    addOperatorButton("MR", 0, 1, Color.RED, new MemoryRecall(state));
 
     // Stockage d'une valeur en memoire
-    addOperatorButton("MS", 1, 1, Color.RED, new MemoryStore());
+    addOperatorButton("MS", 1, 1, Color.RED, new MemoryStore(state));
 
     // Backspace
-    addOperatorButton("<=", 2, 1, Color.RED, new Backspace());
+    addOperatorButton("<=", 2, 1, Color.RED, new Backspace(state));
 
     // Mise a zero de la valeur courante + suppression des erreurs
-    addOperatorButton("CE", 3, 1, Color.RED, new ClearError());
+    addOperatorButton("CE", 3, 1, Color.RED, new ClearError(state));
 
     // Comme CE + vide la pile
-    addOperatorButton("C",  4, 1, Color.RED, new Clear());
+    addOperatorButton("C",  4, 1, Color.RED, new Clear(state));
 
     // Boutons 1-9
     for (int i = 1; i < 10; i++) 
@@ -102,10 +103,10 @@ public class JCalculator extends JFrame
     addOperatorButton(".", 2, 5, Color.BLUE, null);
 
     // Operateurs arithmetiques a deux operandes: /, *, -, +
-    addOperatorButton("/", 3, 2, Color.RED, new DivisionOperator());
-    addOperatorButton("*", 3, 3, Color.RED, new MultiplicationOperator("mul"));
-    addOperatorButton("-", 3, 4, Color.RED, new MultiplicationOperator("sub"));
-    addOperatorButton("+", 3, 5, Color.RED, new MultiplicationOperator("add"));
+    addOperatorButton("/", 3, 2, Color.RED, new DivisionOperator(state));
+    addOperatorButton("*", 3, 3, Color.RED, new MultiplicationOperator("mul", state));
+    addOperatorButton("-", 3, 4, Color.RED, new MultiplicationOperator("sub", state));
+    addOperatorButton("+", 3, 5, Color.RED, new MultiplicationOperator("add", state));
 
     // Operateurs arithmetiques a un operande: 1/x, x^2, Sqrt
     addOperatorButton("1/x", 4, 2, Color.RED, null);

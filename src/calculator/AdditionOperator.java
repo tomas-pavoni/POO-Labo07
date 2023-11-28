@@ -5,6 +5,10 @@ public class AdditionOperator extends Operator {
         return operand1 + operand2;
     }
 
+    AdditionOperator(State state){
+        this.state = state;
+    }
+
     @Override
     void execute() {
         ;
