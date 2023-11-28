@@ -49,7 +49,7 @@ public class TerminalCalculator {
                 }
             }
             operator.execute();
-            state.getStack().push(Double.parseDouble(state.getStack().pop().toString()));
+            state.getStack().push(Double.parseDouble(state.getCurrentValue()));
             System.out.println(state.getStack());
         }
     }
