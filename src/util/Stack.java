@@ -16,7 +16,7 @@ public class Stack<T> {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty. Cannot pop from an empty stack.");
         }
-        T toPop = linkedList.get(linkedList.size() - 1);
+        T toPop = linkedList.get(0);
         linkedList.remove(toPop);
         return toPop;
     }

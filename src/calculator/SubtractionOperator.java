@@ -10,8 +10,8 @@ public class SubtractionOperator extends Operator {
     @Override
     void execute() {
         if (!state.getStack().isEmpty()) {
-            state.setCurrentValue(Double.toString((Double.parseDouble(state.getCurrentValue())
-                    - state.getStack().pop())));
+            state.setCurrentValue(Double.toString(state.getStack().pop() -
+                    Double.parseDouble(state.getCurrentValue())));
         }
         state.nextNumberPushesToStack = true;
     }
