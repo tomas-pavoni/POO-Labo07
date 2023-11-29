@@ -7,7 +7,7 @@ public class DivisionOperator extends Operator {
 
     @Override
     void execute() {
-        if (!state.getStack().isEmpty() && state.getError().isEmpty()) {
+        if (!state.getStack().isEmpty() && !state.getCurrentValue().isEmpty() && state.getError().isEmpty()) {
             double dividend = state.getStack().pop();
             double divisor = Double.parseDouble(state.getCurrentValue());
             if (divisor != 0) {
