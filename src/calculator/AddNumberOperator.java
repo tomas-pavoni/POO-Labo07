@@ -13,7 +13,8 @@ public class AddNumberOperator extends Operator {
         if(state.getError().isEmpty()){
             if(!state.nextNumberPushesToStack){
                 state.setCurrentValue(state.getCurrentValue() + number);
-                if(Double.parseDouble(state.getCurrentValue()) > 9999999){
+                if(Double.parseDouble(state.getCurrentValue()) > 9999999 ||
+                        Double.parseDouble(state.getCurrentValue()) < -9999999){
                     state.setError("Nombre trop grand");
                 }
             }
